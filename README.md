@@ -6,7 +6,7 @@ This repository contains code for the paper [Simple Disentanglement of Style and
 
 # Experiments on MNIST, CIFAR-10, and ImageNet 
 
-1. Start by installing the required packages listed in the ./requirements.txt file. <br><br>
+1. Start by installing the required packages listed in the `./requirements.txt` file. <br><br>
 
 2. Generate image features of datasets used in the experiments as follows: <br><br>
   - Generate MNIST features by running the `MNIST_feature_extractor.ipynb` Jupyter notebook which can be accessed by navigating to `experiments -> feature_extractors-> MNIST_feature_extractor.ipynb` <br><br>
@@ -15,7 +15,7 @@ This repository contains code for the paper [Simple Disentanglement of Style and
   
   - Generate CIFAR-10 SimCLR features by running the `CIFAR10_SimCLR_feature_extractor.ipynb` Jupyter notebook which can be accessed by navigating to `experiments -> feature_extractors-> CIFAR10_SimCLR_feature_extractor.ipynb`  <br><br>
   
-  - For ImageNet, first generate stylized ImageNet datasets using styles found in `experiments -> styles_for_imagenet` (one style at a time). To generate the stylized images use the code by Geirhos et al. https://github.com/rgeirhos/Stylized-ImageNet but first modify it so that one style is applied to all ImageNet images at time (create a stylized ImageNet dataset for each style). <br><br>
+  - For ImageNet, first generate stylized ImageNet datasets using styles found in `experiments -> styles_for_imagenet` (one style at a time). To generate the stylized images use the [code by Geirhos et al.](https://github.com/rgeirhos/Stylized-ImageNet), but first modify it so that one style is applied to all ImageNet images at a time (create a stylized ImageNet dataset for each style). <br><br>
   
   - To generate Resnet-50 features of original ImageNet dataset, first change the file paths in `ImageNet_ResNet50_feature_extractor_og.py` and then run this command `python ./experiments/feature_extractors/ImageNet_ResNet50_feature_extractor_og.py` <br><br>
   
