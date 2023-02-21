@@ -8,7 +8,7 @@ This repository contains code for the paper [Simple Disentanglement of Style and
 
 1. Start by installing the required packages listed in the ./requirements.txt file. <br><br>
 
-2. Generate image features of datasets used in the experiments as follows: <br>
+2. Generate image features of datasets used in the experiments as follows: <br><br>
   - Generate MNIST features by running the `MNIST_feature_extractor.ipynb` Jupyter notebook which can be accessed by navigating to `experiments -> feature_extractors-> MNIST_feature_extractor.ipynb` <br><br>
   
   - Generate CIFAR-10 ResNet-18 features by running the `CIFAR10_ResNet18_feature_extractor.ipynb` Jupyter notebook which can be accessed by navigating to `experiments -> feature_extractors-> CIFAR10_ResNet18_feature_extractor.ipynb` <br><br>
