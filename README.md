@@ -28,5 +28,5 @@ This repository contains code for the paper [Simple Disentanglement of Style and
 
 # Synthetic Data Study
 
-A demo and a visualization of the summary plot from saved results are provided in `demo_plot.ipynb`.  To reproduce the results and plots, run the bash script `jobs.sh`, and create \& visualize plots from `demo_plot.ipynp` file. All the files for the syntheic data study are in the `./synthetic_data_study` folder.
+A demo and a visualization of the summary plot from saved results are provided in `demo_plot.ipynb`.  To reproduce the results and plots, run the bash script `jobs.sh`, and create \& visualize plots from `demo_plot.ipynp` file. All the files for the synthetic data study are in the `./synthetic_data_study` folder.
 
