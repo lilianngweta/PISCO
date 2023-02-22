@@ -21,7 +21,7 @@ This repository contains code for the paper [Simple Disentanglement of Style and
   
   - To generate Resnet-50 features of stylized ImageNet datasets, first change the file paths in `ImageNet_ResNet50_feature_extractor_stylized.py` and then run this command `python ./experiments/feature_extractors/ImageNet_ResNet50_feature_extractor_stylized.py` <br><br>
   
-3. To generate results for MNIST, run the bash script `run_mnist.sh`. To generate results for CIFAR-10, run the bash script `run_cifar10.sh`. And to generate results for ImageNet, run the bash script `run_imagenet.sh` <br><br>
+3. To generate results for MNIST, run the bash script `run_mnist.sh`. To generate results for CIFAR-10, run the bash script `run_cifar10.sh`. And to generate results for ImageNet, run the bash script `run_imagenet.sh`. Clear saved results for each dataset in `./experiments/results` before generating new results. <br><br>
 
 4. To play with the demo, to create plots for MNIST and CIFAR-10, and to generate results tables for ImageNet using results generated in step 3, open and run the Jupyter notebooks `results_mnist.ipynb`, `results_cifar10.ipynb`, and `results_imagenet.ipynb`, respectively - all found in `experiments -> results`. Plots are saved in the `./plots` folder. <br><br>
 
