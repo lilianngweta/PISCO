@@ -15,7 +15,7 @@ This repository contains code for the paper [Simple Disentanglement of Style and
   
   - Generate CIFAR-10 SimCLR features by running the `CIFAR10_SimCLR_feature_extractor.ipynb` Jupyter notebook which can be accessed by navigating to `experiments -> feature_extractors-> CIFAR10_SimCLR_feature_extractor.ipynb`  <br><br>
   
-  - For ImageNet, first [download the ImageNet dataset](https://www.kaggle.com/competitions/imagenet-object-localization-challenge/data) and generate stylized ImageNet datasets using styles found in `experiments -> styles_for_imagenet` (one style at a time). To generate the stylized images use the [code by Geirhos et al.](https://github.com/rgeirhos/Stylized-ImageNet), but first modify it so that one style is applied to all ImageNet images at a time (create a stylized ImageNet dataset for each style) and change the style strength (alpha) to 0.3. <br><br>
+  - For ImageNet, first [download the ImageNet dataset](https://www.kaggle.com/competitions/imagenet-object-localization-challenge/data) and generate stylized ImageNet datasets using styles found in `experiments -> styles_for_imagenet` (one style at a time). To generate the stylized images use the [code by Geirhos et al.](https://github.com/rgeirhos/Stylized-ImageNet), but first change the style strength (alpha) to 0.3 and modify the code so that one style is applied to all ImageNet images at a time (create a stylized ImageNet dataset for each style). <br><br>
   
   - To generate Resnet-50 features of original ImageNet dataset, first change the file paths in `ImageNet_ResNet50_feature_extractor_og.py` and then run this command `python ./experiments/feature_extractors/ImageNet_ResNet50_feature_extractor_og.py` <br><br>
   
