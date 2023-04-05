@@ -162,7 +162,7 @@ def get_exp_results(alpha = 1.0, seed=0, lamda=1, extractor='simclr', transf_typ
         corr_z_matrix = np.corrcoef(t_labels_z_test_og_t.T)
         corr_special = np.abs(corr_matrix[0,1])
         corr_ns_f_norm = np.sqrt((corr_matrix[0,5:]**2).mean()) 
-        z_corr_ns_f_norm = np.sqrt((corr_z_matrix[0,:]**2).mean()) 
+        z_corr_ns_f_norm = np.sqrt((corr_z_matrix[0,1:]**2).mean()) 
             
         
     elif transf_type=='contrasted':
@@ -173,7 +173,7 @@ def get_exp_results(alpha = 1.0, seed=0, lamda=1, extractor='simclr', transf_typ
         corr_z_matrix = np.corrcoef(t_labels_z_test_og_t.T)
         corr_special = np.abs(corr_matrix[0,2])
         corr_ns_f_norm = np.sqrt((corr_matrix[0,5:]**2).mean()) 
-        z_corr_ns_f_norm = np.sqrt((corr_z_matrix[0,:]**2).mean()) 
+        z_corr_ns_f_norm = np.sqrt((corr_z_matrix[0,1:]**2).mean()) 
     
         
     elif transf_type=='blurred':
@@ -184,7 +184,7 @@ def get_exp_results(alpha = 1.0, seed=0, lamda=1, extractor='simclr', transf_typ
         corr_z_matrix = np.corrcoef(t_labels_z_test_og_t.T)
         corr_special = np.abs(corr_matrix[0,3])
         corr_ns_f_norm = np.sqrt((corr_matrix[0,5:]**2).mean()) 
-        z_corr_ns_f_norm = np.sqrt((corr_z_matrix[0,:]**2).mean()) 
+        z_corr_ns_f_norm = np.sqrt((corr_z_matrix[0,1:]**2).mean()) 
         
         
     elif transf_type=='saturated':
@@ -195,7 +195,7 @@ def get_exp_results(alpha = 1.0, seed=0, lamda=1, extractor='simclr', transf_typ
         corr_z_matrix = np.corrcoef(t_labels_z_test_og_t.T)
         corr_special = np.abs(corr_matrix[0,4])
         corr_ns_f_norm = np.sqrt((corr_matrix[0,5:]**2).mean()) 
-        z_corr_ns_f_norm = np.sqrt((corr_z_matrix[0,:]**2).mean()) 
+        z_corr_ns_f_norm = np.sqrt((corr_z_matrix[0,1:]**2).mean()) 
         
 
     # Classification task using all post-processed features except style features - spurious correlations    
