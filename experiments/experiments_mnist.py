@@ -115,18 +115,7 @@ def get_exp_results(alpha = 1.0, seed=0, lamda=1, extractor='mlp', transf_type='
     f_test_ood = z_test_ood @ P
     f_test_og = z_test_og @ P
     f_test_t = z_test_t @ P
-    f_test_og_t = z_test_og_t @ P  
-
-    # Correlation Matrix Analysis
-    # concatenate transformation labels with f_test_og_t
-    t_labels_f_test_og_t = np.concatenate((t_test_labels.reshape(-1,1), f_test_og_t), axis=1)
-    t_labels_z_test_og_t = np.concatenate((t_test_labels.reshape(-1,1), z_test_og_t), axis=1)
-    corr_matrix = np.corrcoef(t_labels_f_test_og_t.T)
-    corr_z_matrix = np.corrcoef(t_labels_z_test_og_t.T)
-    corr_special = np.abs(corr_matrix[0,1])
-    corr_ns_f_norm = np.sqrt((corr_matrix[0,5:]**2).mean()) 
-    z_corr_ns_f_norm = np.sqrt((corr_z_matrix[0,:]**2).mean()) 
-     
+    f_test_og_t = z_test_og_t @ P    
 
     # Classification task using all post-processed features except style features - spurious correlations  
     lr_model_pisco_sp = LogisticRegression(multi_class='multinomial', solver='lbfgs',
@@ -163,9 +152,6 @@ def get_exp_results(alpha = 1.0, seed=0, lamda=1, extractor='mlp', transf_type='
     results_log['PISCO_train_acc_no_sp_corr'] = pisco_no_sp_accuracy0
     results_log['PISCO_indist_acc_no_sp_corr'] = pisco_no_sp_accuracy1
     results_log['PISCO_ood_acc_no_sp_corr'] = pisco_no_sp_accuracy2   
-    results_log['corr_special'] = corr_special
-    results_log['corr_ns_f_norm'] = corr_ns_f_norm
-    results_log['z_corr_ns_f_norm'] =  z_corr_ns_f_norm
     
     return results_log
 
