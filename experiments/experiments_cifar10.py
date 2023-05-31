@@ -153,49 +153,59 @@ def get_exp_results(alpha = 1.0, seed=0, lamda=1, extractor='simclr', transf_typ
     f_test_t = z_test_t @ P 
     f_test_og_t = z_test_og_t @ P 
     
+    
     # Correlation Matrix Analysis
+    
+    # concatenate transformation labels with f_test_og_t
+    t_labels_f_test_og_t = np.concatenate((t_test_labels.reshape(-1,1), f_test_og_t), axis=1)
+    t_labels_z_test_og_t = np.concatenate((t_test_labels.reshape(-1,1), z_test_og_t), axis=1)
+    
     if transf_type=='rotated':
-        # concatenate transformation labels with f_test_og_t
-        t_labels_f_test_og_t = np.concatenate((t_test_labels.reshape(-1,1), f_test_og_t), axis=1)
-        t_labels_z_test_og_t = np.concatenate((t_test_labels.reshape(-1,1), z_test_og_t), axis=1)
         corr_matrix = np.corrcoef(t_labels_f_test_og_t.T)
-        corr_z_matrix = np.corrcoef(t_labels_z_test_og_t.T)
-        corr_special = np.abs(corr_matrix[0,1])
-        corr_ns_f_norm = np.sqrt((corr_matrix[0,5:]**2).mean()) 
-        z_corr_ns_f_norm = np.sqrt((corr_z_matrix[0,1:]**2).mean()) 
+        corr_special_f = np.abs(corr_matrix[0,1])
+        corr_ns_f_norm = np.sqrt((corr_matrix[0,5:]**2).mean())z
+        corr_z_matrix = np.corrcoef(t_labels_z_test_og_t.T) 
+        first_z_row = corr_z_matrix[0,1:]
+        corr_special_z = np.max(first_z_row)
+        index = np.argmax(first_z_row)
+        corr_ns = np.delete(first_z_row, index)
+        corr_ns_z_norm = np.sqrt((corr_ns**2).mean()) 
             
         
     elif transf_type=='contrasted':
-        # concatenate transformation labels with f_test_og_t
-        t_labels_f_test_og_t = np.concatenate((t_test_labels.reshape(-1,1), f_test_og_t), axis=1)
-        t_labels_z_test_og_t = np.concatenate((t_test_labels.reshape(-1,1), z_test_og_t), axis=1)
         corr_matrix = np.corrcoef(t_labels_f_test_og_t.T)
-        corr_z_matrix = np.corrcoef(t_labels_z_test_og_t.T)
-        corr_special = np.abs(corr_matrix[0,2])
-        corr_ns_f_norm = np.sqrt((corr_matrix[0,5:]**2).mean()) 
-        z_corr_ns_f_norm = np.sqrt((corr_z_matrix[0,1:]**2).mean()) 
+        corr_special_f = np.abs(corr_matrix[0,2])
+        corr_ns_f_norm = np.sqrt((corr_matrix[0,5:]**2).mean())
+        corr_z_matrix = np.corrcoef(t_labels_z_test_og_t.T) 
+        first_z_row = corr_z_matrix[0,1:]
+        corr_special_z = np.max(first_z_row)
+        index = np.argmax(first_z_row)
+        corr_ns = np.delete(first_z_row, index)
+        corr_ns_z_norm = np.sqrt((corr_ns**2).mean()) 
     
         
     elif transf_type=='blurred':
-        # concatenate transformation labels with f_test_og_t
-        t_labels_f_test_og_t = np.concatenate((t_test_labels.reshape(-1,1), f_test_og_t), axis=1)
-        t_labels_z_test_og_t = np.concatenate((t_test_labels.reshape(-1,1), z_test_og_t), axis=1)
         corr_matrix = np.corrcoef(t_labels_f_test_og_t.T)
+        corr_special_f = np.abs(corr_matrix[0,3])
+        corr_ns_f_norm = np.sqrt((corr_matrix[0,5:]**2).mean())
         corr_z_matrix = np.corrcoef(t_labels_z_test_og_t.T)
-        corr_special = np.abs(corr_matrix[0,3])
-        corr_ns_f_norm = np.sqrt((corr_matrix[0,5:]**2).mean()) 
-        z_corr_ns_f_norm = np.sqrt((corr_z_matrix[0,1:]**2).mean()) 
+        first_z_row = corr_z_matrix[0,1:]
+        corr_special_z = np.max(first_z_row)
+        index = np.argmax(first_z_row)
+        corr_ns = np.delete(first_z_row, index)
+        corr_ns_z_norm = np.sqrt((corr_ns**2).mean()) 
         
         
     elif transf_type=='saturated':
-        # concatenate transformation labels with f_test_og_t
-        t_labels_f_test_og_t = np.concatenate((t_test_labels.reshape(-1,1), f_test_og_t), axis=1)
-        t_labels_z_test_og_t = np.concatenate((t_test_labels.reshape(-1,1), z_test_og_t), axis=1)
         corr_matrix = np.corrcoef(t_labels_f_test_og_t.T)
-        corr_z_matrix = np.corrcoef(t_labels_z_test_og_t.T)
-        corr_special = np.abs(corr_matrix[0,4])
-        corr_ns_f_norm = np.sqrt((corr_matrix[0,5:]**2).mean()) 
-        z_corr_ns_f_norm = np.sqrt((corr_z_matrix[0,1:]**2).mean()) 
+        corr_special_f = np.abs(corr_matrix[0,4])
+        corr_ns_f_norm = np.sqrt((corr_matrix[0,5:]**2).mean())
+        corr_z_matrix = np.corrcoef(t_labels_z_test_og_t.T) 
+        first_z_row = corr_z_matrix[0,1:]
+        corr_special_z = np.max(first_z_row)
+        index = np.argmax(first_z_row)
+        corr_ns = np.delete(first_z_row, index)
+        corr_ns_z_norm = np.sqrt((corr_ns**2).mean()) 
         
 
     # Classification task using all post-processed features except style features - spurious correlations    
@@ -233,9 +243,10 @@ def get_exp_results(alpha = 1.0, seed=0, lamda=1, extractor='simclr', transf_typ
     results_log['PISCO_train_acc_no_sp_corr'] = pisco_no_sp_accuracy0
     results_log['PISCO_indist_acc_no_sp_corr'] = pisco_no_sp_accuracy1
     results_log['PISCO_ood_acc_no_sp_corr'] = pisco_no_sp_accuracy2     
-    results_log['corr_special'] = corr_special
+    results_log['corr_special_f'] = corr_special_f
+    results_log['corr_special_z'] =  corr_special_z
     results_log['corr_ns_f_norm'] = corr_ns_f_norm
-    results_log['z_corr_ns_f_norm'] =  z_corr_ns_f_norm
+    results_log['corr_ns_z_norm'] =  corr_ns_z_norm
     
     return results_log
 
