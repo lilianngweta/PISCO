@@ -1,6 +1,6 @@
 # PISCO
 
-This repository contains code for the paper [Simple Disentanglement of Style and Content in Visual Representations](https://arxiv.org/abs/2302.09795)
+This repository contains code for the ICML paper [Simple Disentanglement of Style and Content in Visual Representations](https://arxiv.org/abs/2302.09795)
 
 
 
