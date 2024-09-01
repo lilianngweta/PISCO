@@ -30,3 +30,15 @@ This repository contains code for the ICML paper [Simple Disentanglement of Styl
 
 A demo and a visualization of the summary plot from saved results are provided in `demo_plot.ipynb`.  To reproduce the results and plots, run the bash script `jobs.sh`, and create \& visualize plots from `demo_plot.ipynp` file. All the files for the synthetic data study are in the `./synthetic_data_study` folder.
 
+
+# Paper Citation
+
+@inproceedings{ngweta2023simple,
+  title={Simple disentanglement of style and content in visual representations},
+  author={Ngweta, Lilian and Maity, Subha and Gittens, Alex and Sun, Yuekai and Yurochkin, Mikhail},
+  booktitle={International Conference on Machine Learning},
+  pages={26063--26086},
+  year={2023},
+  organization={PMLR}
+}
+
