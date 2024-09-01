@@ -2,7 +2,7 @@
 
 This repository contains code for the ICML paper [Simple Disentanglement of Style and Content in Visual Representations](https://arxiv.org/abs/2302.09795)
 
-
+![title](pisco_illustration.png)
 
 # Experiments on MNIST, CIFAR-10, and ImageNet 
 
