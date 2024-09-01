@@ -33,12 +33,12 @@ A demo and a visualization of the summary plot from saved results are provided i
 
 # Paper Citation
 
-@inproceedings{ngweta2023simple,
+```@inproceedings{ngweta2023simple,
   title={Simple disentanglement of style and content in visual representations},
   author={Ngweta, Lilian and Maity, Subha and Gittens, Alex and Sun, Yuekai and Yurochkin, Mikhail},
   booktitle={International Conference on Machine Learning},
   pages={26063--26086},
   year={2023},
   organization={PMLR}
-}
+}```
 
